@@ -1,7 +1,7 @@
 {
     "name": "sebastiaanluca/php-file-generator",
     "type": "library",
-    "description": ":package_description",
+    "description": "Easily generate new files and classes from stubs.",
     "keywords": [
         "sebastiaanluca",
         "php-file-generator"
@@ -10,9 +10,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Sebastiaan Luca",
+            "email": "hello@sebastiaanluca.com",
+            "homepage": "https://www.sebastiaanluca.com",
             "role": "Developer"
         }
     ],
