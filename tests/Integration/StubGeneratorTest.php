@@ -7,11 +7,13 @@ use SebastiaanLuca\FileGenerator\TestCase;
 
 class StubGeneratorTest extends TestCase
 {
-    public function testItWillGenerateAFileFromAStub()
+    public function testItGeneratesAFile()
     {
+        $target = __DIR__ . '/../files/migration.php';
+
         $stub = new StubGenerator(
             __DIR__ . '/../stubs/migration.stub',
-            __DIR__ . '/../files/migration.php',
+            $target,
             [
                 ':CLASS_NAME:' => 'CreateNotificationsTable',
                 ':TABLE_NAME:' => 'notifications',
@@ -21,6 +23,31 @@ class StubGeneratorTest extends TestCase
 
         $stub->render();
 
-        $this->assertFileExists(__DIR__ . '/../files/migration.php');
+        $this->assertFileExists($target);
+    }
+
+    public function testItReplacesPlaceholders()
+    {
+        $target = __DIR__ . '/../files/migration.php';
+
+        $stub = new StubGenerator(
+            __DIR__ . '/../stubs/migration.stub',
+            $target,
+            [
+                ':CLASS_NAME:' => 'CreateNotificationsTable',
+                ':TABLE_NAME:' => 'notifications',
+            ],
+            false
+        );
+
+        $stub->render();
+
+        $file = file_get_contents($target);
+
+        $this->assertContains('CreateNotificationsTable', $file);
+        $this->assertContains('notifications', $file);
+
+        $this->assertNotContains(':CLASS_NAME:', $file);
+        $this->assertNotContains(':TABLE_NAME:', $file);
     }
 }

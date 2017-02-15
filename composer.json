@@ -21,7 +21,8 @@
         "illuminate/support": "^5.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6"
+        "phpunit/phpunit": "^6",
+        "raveren/kint": "^1.0"
     },
     "autoload": {
         "psr-4": {
