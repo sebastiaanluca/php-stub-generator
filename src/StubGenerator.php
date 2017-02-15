@@ -32,6 +32,10 @@ class StubGenerator
             $contents = str_replace($tag, $replacement, $contents);
         });
 
-        ddd($contents);
+        $path = storage_path('app/generator/');
+
+        mkdir($path, 0777, true);
+
+        file_put_contents($path . 'migration.php', $contents);
     }
 }
