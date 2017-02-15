@@ -9,7 +9,12 @@ class StubGenerator
     /**
      * @var string
      */
-    protected $path;
+    protected $source;
+
+    /**
+     * @var string
+     */
+    protected $target;
 
     /**
      * @var array
@@ -17,38 +22,45 @@ class StubGenerator
     protected $replacements;
 
     /**
-     * @param string $path
-     * @param array $replacements
+     * @var bool
      */
-    public function __construct(string $path, array $replacements)
+    protected $isModule;
+
+    /**
+     * @param string $source
+     * @param string $target
+     * @param array $replacements
+     * @param bool $isModule
+     */
+    public function __construct(string $source, string $target, array $replacements, bool $isModule = false)
     {
-        $this->path = $path;
+        $this->source = $source;
+        $this->target = $target;
         $this->replacements = $replacements;
+        $this->isModule = $isModule;
     }
 
     /**
-     * @param string $target
-     *
      * @throws \RuntimeException
      */
-    public function render(string $target)
+    public function render()
     {
-        if (file_exists($target)) {
-            throw new RuntimeException('Cannot generate file from stub. Target file ' . $target . ' already exists.');
+        if (file_exists($this->target)) {
+            throw new RuntimeException('Cannot generate file from stub. Target file ' . $this->target . ' already exists.');
         }
 
-        $contents = file_get_contents($this->path);
+        $contents = file_get_contents($this->source);
 
         collect($this->replacements)->each(function (string $replacement, string $tag) use (&$contents) {
             $contents = str_replace($tag, $replacement, $contents);
         });
 
-        $path = pathinfo($target, PATHINFO_DIRNAME);
+        $path = pathinfo($this->target, PATHINFO_DIRNAME);
 
         if (! file_exists($path)) {
             mkdir($path, 0777, true);
         }
 
-        file_put_contents($target, $contents);
+        file_put_contents($this->target, $contents);
     }
 }

@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use SebastiaanLuca\Migrations\TransactionalMigration as Migration;
+
+class :CLASS_NAME: extends Migration
+{
+    /**
+     * Run the migration.
+     */
+    public function migrateUp()
+    {
+        $this->schema->create(':TABLE_NAME:', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migration.
+     */
+    public function migrateDown()
+    {
+        $this->drop(':TABLE_NAME:');
+    }
+}
