@@ -2,6 +2,8 @@
 
 namespace SebastiaanLuca\FileGenerator;
 
+use RuntimeException;
+
 class StubGenerator
 {
     /**
@@ -24,18 +26,29 @@ class StubGenerator
         $this->replacements = $replacements;
     }
 
-    public function render()
+    /**
+     * @param string $target
+     *
+     * @throws \RuntimeException
+     */
+    public function render(string $target)
     {
+        if (file_exists($target)) {
+            throw new RuntimeException('Cannot generate file from stub. Target file ' . $target . ' already exists.');
+        }
+
         $contents = file_get_contents($this->path);
 
         collect($this->replacements)->each(function (string $replacement, string $tag) use (&$contents) {
             $contents = str_replace($tag, $replacement, $contents);
         });
 
-        $path = storage_path('app/generator/');
+        $path = pathinfo($target, PATHINFO_DIRNAME);
 
-        mkdir($path, 0777, true);
+        if (! file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
 
-        file_put_contents($path . 'migration.php', $contents);
+        file_put_contents($target, $contents);
     }
 }
