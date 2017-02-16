@@ -13,15 +13,13 @@ class StubGeneratorTest extends TestCase
 
         $stub = new StubGenerator(
             __DIR__ . '/../stubs/migration.stub',
-            $target,
-            [
-                ':CLASS_NAME:' => 'CreateNotificationsTable',
-                ':TABLE_NAME:' => 'notifications',
-            ],
-            false
+            $target
         );
 
-        $stub->render();
+        $stub->render([
+            ':CLASS_NAME:' => 'CreateNotificationsTable',
+            ':TABLE_NAME:' => 'notifications',
+        ]);
 
         $this->assertFileExists($target);
     }
@@ -32,15 +30,13 @@ class StubGeneratorTest extends TestCase
 
         $stub = new StubGenerator(
             __DIR__ . '/../stubs/migration.stub',
-            $target,
-            [
-                ':CLASS_NAME:' => 'CreateNotificationsTable',
-                ':TABLE_NAME:' => 'notifications',
-            ],
-            false
+            $target
         );
 
-        $stub->render();
+        $stub->render([
+            ':CLASS_NAME:' => 'CreateNotificationsTable',
+            ':TABLE_NAME:' => 'notifications',
+        ]);
 
         $file = file_get_contents($target);
 

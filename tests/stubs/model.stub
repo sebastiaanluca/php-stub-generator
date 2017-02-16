@@ -1,0 +1,11 @@
+<?php
+
+class :CLASS_NAME: extends BaseEloquentModel
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = :TABLE_NAME:;
+}
