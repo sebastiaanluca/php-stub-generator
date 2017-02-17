@@ -20,6 +20,7 @@ env:
 
 matrix:
   allow_failures:
+    - env: ILLUMINATE_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
     - env: ILLUMINATE_VERSION="dev-master"
   fast_finish: true
 
