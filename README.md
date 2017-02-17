@@ -3,9 +3,10 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
+
+[![Follow me on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
+[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=https%3A//github.com/sebastiaanluca/php-stub-generator%20via%20%40sebastiaanluca)
 
 Easily generate files and classes from stubs. Ideal for e.g. additional Laravel make commands!
 
@@ -55,6 +56,10 @@ If you discover any security related issues, please email hello@sebastiaanluca.c
 - [Sebastiaan Luca][link-author]
 - [All Contributors][link-contributors]
 
+## About
+
+My name is Sebastiaan and I'm a freelance back-end developer from Belgium specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
@@ -67,8 +72,8 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/php-stub-generator
 [link-travis]: https://travis-ci.org/sebastiaanluca/php-stub-generator
-[link-scrutinizer]: https://scrutinizer-ci.com/g/sebastiaanluca/php-stub-generator/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/sebastiaanluca/php-stub-generator
 [link-downloads]: https://packagist.org/packages/sebastiaanluca/php-stub-generator
-[link-author]: https://github.com/sebastiaanluca
 [link-contributors]: ../../contributors
+[link-author]: https://github.com/sebastiaanluca
+[author-portfolio]: http://www.sebastiaanluca.com
+[author-email]: mailto:hello@sebastiaanluca.com
