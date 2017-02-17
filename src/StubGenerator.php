@@ -1,6 +1,6 @@
 <?php
 
-namespace SebastiaanLuca\FileGenerator;
+namespace SebastiaanLuca\StubGenerator;
 
 use RuntimeException;
 

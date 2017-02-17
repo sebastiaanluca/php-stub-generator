@@ -1,12 +1,15 @@
 {
-    "name": "sebastiaanluca/php-file-generator",
+    "name": "sebastiaanluca/php-stub-generator",
     "type": "library",
-    "description": "Easily generate new files and classes from stubs.",
+    "description": "Easily generate files and classes from stubs.",
     "keywords": [
         "sebastiaanluca",
-        "php-file-generator"
+        "php",
+        "stub",
+        "file",
+        "generator"
     ],
-    "homepage": "https://github.com/sebastiaanluca/php-file-generator",
+    "homepage": "https://github.com/sebastiaanluca/php-stub-generator",
     "license": "MIT",
     "authors": [
         {
@@ -26,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SebastiaanLuca\\FileGenerator\\": "src"
+            "SebastiaanLuca\\StubGenerator\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SebastiaanLuca\\FileGenerator\\": "tests"
+            "SebastiaanLuca\\StubGenerator\\Tests\\": "tests"
         }
     },
     "scripts": {

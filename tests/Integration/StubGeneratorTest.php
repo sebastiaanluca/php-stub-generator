@@ -1,9 +1,9 @@
 <?php
 
-namespace SebastiaanLuca\FileGenerator\Tests\Integration;
+namespace SebastiaanLuca\StubGenerator\Tests\Integration;
 
-use SebastiaanLuca\FileGenerator\StubGenerator;
-use SebastiaanLuca\FileGenerator\TestCase;
+use SebastiaanLuca\StubGenerator\StubGenerator;
+use SebastiaanLuca\StubGenerator\Tests\TestCase;
 
 class StubGeneratorTest extends TestCase
 {
