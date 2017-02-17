@@ -1,0 +1,45 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+  - nightly
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  matrix:
+    - ILLUMINATE_VERSION="5.3.*" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="5.3.*"
+    - ILLUMINATE_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="5.4.*"
+    - ILLUMINATE_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="dev-master"
+
+matrix:
+  allow_failures:
+    - env: ILLUMINATE_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
+    - env: ILLUMINATE_VERSION="dev-master"
+  fast_finish: true
+
+before_install:
+  - travis_retry composer self-update
+  - composer require laravel/framework=${ILLUMINATE_VERSION} --no-update
+
+install:
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+
+script:
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master
+    - develop
+
+notifications:
+  email:
+    on_failure: change
+    on_success: never

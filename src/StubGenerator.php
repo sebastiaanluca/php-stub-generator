@@ -34,7 +34,7 @@ class StubGenerator
     public function render(array $replacements)
     {
         if (file_exists($this->target)) {
-            throw new RuntimeException('Cannot generate file from stub. Target file ' . $this->target . ' already exists.');
+            throw new RuntimeException('Cannot generate file. Target ' . $this->target . ' already exists.');
         }
 
         $contents = file_get_contents($this->source);

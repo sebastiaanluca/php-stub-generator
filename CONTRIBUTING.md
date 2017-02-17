@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/sebastiaanluca/php-file-generator).
+We accept contributions via Pull Requests on [Github](https://github.com/sebastiaanluca/php-stub-generator).
 
 
 ## Pull Requests
