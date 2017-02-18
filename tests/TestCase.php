@@ -8,10 +8,10 @@ class TestCase extends BaseTestCase
 {
     protected function tearDown()
     {
-        $files = glob(__DIR__ . '/files/*');
+        parent::tearDown();
 
-        collect($files)->each(function ($file) {
-            unlink($file);
-        });
+        $tempDir = __DIR__ . '/files';
+
+        system('/bin/rm -rf ' . escapeshellarg($tempDir));
     }
 }
